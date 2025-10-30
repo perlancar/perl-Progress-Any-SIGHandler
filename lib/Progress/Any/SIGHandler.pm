@@ -48,7 +48,7 @@ sub install_sig_handler {
 }
 
 1;
-# ABSTRACT: Output progress to terminal as simple message
+# ABSTRACT: Add signal handler so your process can report progress when sent signal e.g. USR1
 
 =for Pod::Coverage ^()$
 
