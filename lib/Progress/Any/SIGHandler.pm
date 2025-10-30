@@ -24,6 +24,9 @@ sub import {
     if (defined(my $val = delete $args{template})) {
         $Template = $val;
     }
+    if (defined(my $signal = delete $args{signal})) {
+        $Signal = $val;
+    }
 
     die "Unknown import argument(s): " . join(", ", sort keys %args)
         if keys %args;
