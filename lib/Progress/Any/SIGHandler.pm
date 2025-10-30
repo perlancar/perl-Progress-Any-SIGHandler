@@ -24,7 +24,7 @@ sub import {
     if (defined(my $val = delete $args{template})) {
         $Template = $val;
     }
-    if (defined(my $signal = delete $args{signal})) {
+    if (defined(my $val = delete $args{signal})) {
         $Signal = $val;
     }
 
