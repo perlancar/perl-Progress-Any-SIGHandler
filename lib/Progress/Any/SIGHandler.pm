@@ -54,20 +54,39 @@ sub install_sig_handler {
 
 =head1 SYNOPSIS
 
-Simplest way to use:
+=head2 Simplest way to use
+
+In F<foo.pl>:
+
+ #!/usr/bin/env perl
+
+ use strict;
+ use warnings;
 
  use Progress::Any '$progress';
  use Progress::Any::SIGHandler;
 
  # do stuffs while updating progress
- $progress->target(10);
- for (1..10) {
+ $progress->target(100);
+ for (1..100) {
      # do stuffs
+     sleep(rand()*3 + 1);
      $progress->update;
  }
  $progress->finish;
 
-Customize some aspects:
+When run in bash:
+
+ % ./foo.pl &     ; # run in background
+
+ % kill -USR1 %1
+ Progress: 5/100 (  5.00%), 2m38s left
+
+ % kill -USR1 %1
+ Progress: 8/100 (  8.00%), 2m27s left
+
+
+=head2 Customize some aspects
 
  use Progress::Any::SIGHandler (
      template  => '...',      # default template is: "Progress: %P/%T (%6.2p%%), %R"
