@@ -25,7 +25,8 @@ sub import {
         $Template = $val;
     }
 
-    die "Unknown import argument(s): " . join(", ", sort keys %args);
+    die "Unknown import argument(s): " . join(", ", sort keys %args)
+        if keys %args;
 
     install_sig_handler();
 }
